@@ -1,0 +1,44 @@
+# Compiled programs and object files
+*.exe
+*.out
+*.app
+*.o
+*.obj
+*.a
+*.lib
+*.dll
+*.so
+*.dylib
+
+# Build systems
+build/
+Build/
+cmake-build-*/
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+compile_commands.json
+Makefile
+*.ninja
+.ninja_deps
+.ninja_log
+/.vs/
+
+# Files created by tutorial examples
+lesson_notes.txt
+
+# IDE and editor settings
+.vscode/
+.idea/
+*.code-workspace
+*.suo
+*.user
+*.vcxproj.user
+*.VC.db
+*.VC.opendb
+
+# OS files and temporary editor files
+.DS_Store
+Thumbs.db
+*~
+*.swp
