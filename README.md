@@ -38,6 +38,7 @@ cmake --build build
 5. Read each stage's README before its source files; it explains what a concept is, why it matters, where to use it, and its main pitfall.
 
 The [learning method](docs/LEARNING_METHOD.md) explains how to turn the examples into practice rather than passive reading.
+The [modern C++ practices guide](docs/MODERN_CPP_PRACTICES.md) compares the newer styles used here with common older alternatives.
 
 ## Conventions used here
 
