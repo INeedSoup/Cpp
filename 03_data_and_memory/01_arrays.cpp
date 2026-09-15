@@ -14,5 +14,5 @@ int main()
     }
 
     std::cout << "Number of students: " << students.size() << '\n';
-    // Use std::vector (next section) when the size must change at runtime.
+    // See Stage 5 for std::vector when the size must change at runtime.
 }

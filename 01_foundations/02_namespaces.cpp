@@ -1,32 +1,26 @@
+/*
+Learn: A namespace groups names and the :: operator selects a name from one.
+Why: Large programs and libraries can define the same short name without colliding.
+Use: Put related library code in a namespace; write std::cout to show its origin.
+Watch out: Avoid using namespace std; in headers or large scopes because it imports many names.
+Try next: Add a third namespace with another value named count.
+*/
 #include <iostream>
 
-// namespace : provides a solution for preventing name conflicts in large projects. Each entity needs a unique name. 
-//             A namespace allows for identically named entities as long as the namespaces are different.
-
-namespace first
+namespace classroom
 {
-    int x = 1;
+    inline int count = 24;
 }
 
-namespace second
+namespace library
 {
-    int x = 2;
+    inline int count = 1'200;
 }
 
 int main()
 {
-    int x = 0;
-
-    std::cout << x << "\n"; // local version of x
-
-    std::cout << first::x << "\n"; // :: this is the scope resolution operator
-
-    std::cout << second::x << "\n";
-
-    // using namespaces we can have entities with same names
-
-    // using namespace first; with this command we set first as the namespace so now we dont have specify explicitly which namespace to use for the whole scope where this is written
-    std::cout << x;
-
-    return 0;
+    const int count = 3; // This local name hides names with the same spelling outside main.
+    std::cout << "Local count: " << count << '\n';
+    std::cout << "Classroom count: " << classroom::count << '\n';
+    std::cout << "Library count: " << library::count << '\n';
 }

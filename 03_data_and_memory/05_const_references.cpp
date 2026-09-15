@@ -1,3 +1,7 @@
+/* Learn: const T& borrows an existing object without copying or changing it.
+Why: it is efficient and documents read-only intent for potentially large objects.
+Watch out: a reference must always refer to a live object.
+Try next: Pass a vector by const reference after completing Stage 5. */
 #include <iostream>
 #include <string>
 

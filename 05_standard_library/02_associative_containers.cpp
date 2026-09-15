@@ -1,3 +1,8 @@
+/* Learn: sets answer “have I seen this?” and maps associate a key with a value.
+Why: they express uniqueness and lookup directly.
+Use: set/map for sorted traversal; unordered versions for fast average lookup when order does not matter.
+Watch out: map[key] inserts a missing key; at(key) throws instead.
+Try next: Count the frequency of letters in a word. */
 #include <iostream>
 #include <map>
 #include <set>

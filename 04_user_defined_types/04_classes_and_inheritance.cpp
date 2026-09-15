@@ -1,3 +1,8 @@
+/* Learn: a class bundles state and operations, and private data protects its rules.
+Why: BankAccount prevents callers from directly creating an invalid balance.
+Use: a type has behaviour or an invariant that must always hold.
+Watch out: inheritance should mean “is a”; it is not a shortcut for ordinary code reuse.
+Try next: Add a withdraw function that rejects an amount larger than the balance. */
 #include <iostream>
 #include <stdexcept>
 #include <string>
@@ -7,7 +12,7 @@ class BankAccount
 {
 public:
     BankAccount(std::string owner, double openingBalance)
-        : owner_(std::move(owner)), balance_(openingBalance)
+        : owner_(std::move(owner)), balance_(openingBalance) // Initializer lists construct members directly.
     {
         if (openingBalance < 0.0)
             throw std::invalid_argument("Opening balance cannot be negative.");
@@ -20,7 +25,7 @@ public:
         balance_ += amount;
     }
 
-    [[nodiscard]] double balance() const { return balance_; }
+    [[nodiscard]] double balance() const { return balance_; } // [[nodiscard]] asks callers not to ignore this result.
     [[nodiscard]] const std::string& owner() const { return owner_; }
 
 private:

@@ -1,25 +1,19 @@
+/*
+Learn: using creates an alias for an existing type.
+Why: A meaningful alias can show what a number represents.
+Use: Name a domain concept such as UserId; it can make APIs easier to read.
+Watch out: An alias is not a new type, so UserId and int can still be mixed.
+Try next: Create an alias for a percentage stored as double.
+*/
 #include <iostream>
+#include <string>
 
-typedef std::string text_t; 
-
-// type def : reserved keyword used to create an additional (alais) for another data type
-// new identifier for an existing type
-// helps us with readablity and reduces typos
-// use when there is a clear benefit
-// replaced with 'using' (work better w/ templates)
-
-using number_t = int;
-
+using UserId = int;
+using DisplayName = std::string;
 
 int main()
 {
-    text_t firstName = "Aman";
-
-    std::cout << firstName << "\n";
-    
-    number_t x = 10;
-    
-    std::cout << x << "\n";
-
-    return 0;
+    const UserId userId = 42;
+    const DisplayName name = "Aman";
+    std::cout << name << " has id " << userId << '\n';
 }

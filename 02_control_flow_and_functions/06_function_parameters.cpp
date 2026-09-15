@@ -1,3 +1,7 @@
+/* Learn: value parameters copy, references alias, and const references borrow without modification.
+Why: the parameter form documents whether a function changes caller-owned data.
+Watch out: never return a reference to a local object.
+Try next: Add a function that changes a string only when it is non-empty. */
 #include <iostream>
 #include <string>
 

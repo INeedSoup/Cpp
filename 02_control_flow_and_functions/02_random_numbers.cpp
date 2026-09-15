@@ -1,3 +1,7 @@
+/* Learn: a random engine produces values and a distribution constrains them to a useful range.
+Why: modern <random> makes the source and range explicit.
+Watch out: seed once; repeatedly reseeding can reduce randomness.
+Try next: Roll two dice and add their values. */
 #include <iostream>
 #include <random>
 

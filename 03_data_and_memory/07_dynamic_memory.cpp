@@ -1,3 +1,7 @@
+/* Learn: dynamically allocated memory needs an owner; unique_ptr releases owned memory automatically.
+Why: manual delete is easy to forget or misuse.
+Watch out: use vector for a dynamically sized collection in ordinary code.
+Try next: Replace the fixed size with a vector of grades. */
 #include <iostream>
 #include <memory>
 

@@ -1,3 +1,7 @@
+/* Learn: parallel arrays can represent questions, choices, and answers for a small fixed quiz.
+Why: nested loops print each question's group of options.
+Watch out: parallel arrays must always stay the same size; a struct is safer as a project grows.
+Try next: Replace the parallel arrays with a Question struct. */
 #include <iostream>
 #include <cctype>
 

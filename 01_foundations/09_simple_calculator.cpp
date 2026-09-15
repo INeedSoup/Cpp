@@ -1,3 +1,10 @@
+/*
+Learn: switch can select an arithmetic operation from a character.
+Why: Grouping each operator with its calculation keeps a small menu readable.
+Use: One input selects one known action.
+Watch out: Division by zero is invalid for floating-point calculations too.
+Try next: Add a remainder operator that accepts integers only.
+*/
 #include <iostream>
 
 int main()
@@ -5,7 +12,6 @@ int main()
     char operation{};
     double left{};
     double right{};
-
     std::cout << "Enter an expression, for example: 12.5 * 4\n> ";
     if (!(std::cin >> left >> operation >> right))
     {

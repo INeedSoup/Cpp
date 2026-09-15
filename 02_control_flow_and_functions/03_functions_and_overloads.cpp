@@ -1,85 +1,25 @@
+/* Learn: a declaration introduces a function; a definition provides its body; overloads share a name but differ in parameters.
+Why: functions give a repeated task one reliable implementation.
+Use: extract a block when its name explains the caller better than the block itself.
+Watch out: parameter types—not return types—distinguish overloads.
+Try next: Add an overload that calculates the area of a rectangle. */
 #include <iostream>
+#include <string>
 
-void hbd(std::string name, int age);
-
-double square(double length);
-
-double cube(double length);
-
-std::string concatStrings(std::string string1, std::string string2);
-
-
-// Overloaded functions
-void bakePizza();
-void bakePizza(std::string topping); // function name with its list of paramater is called function signature
-void bakePizza(std::string topping1, std::string topping2);
+double square(double value);
+double area(double side);
+double area(double width, double height);
+std::string joinNames(const std::string& first, const std::string& last);
 
 int main()
 {
-    // function = a block of reusable code 
-    
-    std::string name = "Aman";
-    int age = 22;
-
-    hbd(name, age);
-    hbd(name, age);
-    hbd(name, age);
-
-    double length = 5.0;
-
-    double area = square(length);
-    std::cout << "Area: " << area << "cm^2\n";
-
-    double volume = cube(length);
-    std::cout << "Volume: " << volume << "cm^3\n";
-
-    std::string firstName = "Aman";
-    std::string lastName = "Pawar";
-
-    std::string fullName = concatStrings(firstName, lastName);
-
-    std::cout << "Hello " << fullName << std::endl;
-
-    bakePizza();
-    bakePizza("pepperoni");
-    bakePizza("pepperoni", "jalapenos");
-
-    // return = return a value back to the spot where you called the encompassing function, return type should match the function type from which it is going to be return the value
-    return 0;
+    std::cout << "Square: " << square(5.0) << '\n';
+    std::cout << "Square area: " << area(4.0) << '\n';
+    std::cout << "Rectangle area: " << area(4.0, 3.0) << '\n';
+    std::cout << "Hello, " << joinNames("Aman", "Pawar") << "!\n";
 }
 
-void hbd(std::string name, int age)
-{
-    std::cout << "Happy birthday to you " << name << std::endl;
-    std::cout << "You are " << age << " years old" << std::endl;
-}
-
-double square(double length)
-{
-    return length * length;
-}
-
-double cube(double length)
-{
-    return length * length * length;
-}
-
-std::string concatStrings(std::string string1, std::string string2)
-{
-    return string1 + " " + string2;
-}
-
-void bakePizza()
-{
-    std::cout << "Here is your pizza\n";
-}
-
-void bakePizza(std::string topping1)
-{
-    std::cout << "Here is your " << topping1 << " pizza\n";
-}
-
-void bakePizza(std::string topping1, std::string topping2)
-{
-    std::cout << "Here is your " << topping1 << " and " << topping2 << " pizza\n";
-}
+double square(double value) { return value * value; }
+double area(double side) { return side * side; }
+double area(double width, double height) { return width * height; }
+std::string joinNames(const std::string& first, const std::string& last) { return first + " " + last; }

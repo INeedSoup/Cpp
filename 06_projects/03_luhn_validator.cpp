@@ -1,3 +1,7 @@
+/* Learn: the Luhn algorithm processes digits from right to left and combines validation rules.
+Why: checksum algorithms catch many typing mistakes without storing external data.
+Watch out: passing Luhn does not prove that a card account exists or is authorised.
+Try next: Also accept '-' separators, then reject all other punctuation. */
 #include <algorithm>
 #include <cctype>
 #include <iostream>

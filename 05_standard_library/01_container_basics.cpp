@@ -1,3 +1,8 @@
+/* Learn: containers store collections with different access and insertion trade-offs.
+Why: choosing the right container avoids manually managing storage.
+Use: start with vector; use array for fixed size, deque for both ends, and list only with a clear iterator-insertion need.
+Watch out: list has no fast indexing, and vector insertions in the middle can move elements.
+Try next: Add a value to scores and print every score. */
 #include <array>
 #include <deque>
 #include <iostream>

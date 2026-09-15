@@ -1,3 +1,8 @@
+/* Learn: file streams use the same stream model as console I/O; exceptions report failures to a caller.
+Why: a program must detect when an external resource such as a file is unavailable.
+Use: check an opened stream before reading or writing it.
+Watch out: this relative file name is created in the program's working directory; opening ofstream truncates an existing file.
+Try next: Ask the user for a file name and handle an unreadable file. */
 #include <exception>
 #include <fstream>
 #include <iostream>

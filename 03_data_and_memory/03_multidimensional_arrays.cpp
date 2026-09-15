@@ -1,35 +1,23 @@
+/* Learn: a two-dimensional array stores rows containing columns.
+Why: a grid makes row/column data easier to model than a flat list.
+Use: fixed-size boards, tables, and small matrices.
+Watch out: built-in arrays need a compile-time column size; use vector for dynamic grids.
+Try next: Calculate the total of an int 3x3 grid. */
+#include <array>
 #include <iostream>
+#include <string>
 
 int main()
 {
-    // 2d array, matrix, multidimensional array
+    const std::array<std::array<std::string, 3>, 3> cars{{
+        {"Mustang", "Escape", "F-150"},
+        {"Corvette", "Equinox", "Silverado"},
+        {"Challenger", "Durango", "Ram 1500"}}};
 
-    std::string cars[][3] = {{"Mustang", "Escape", "F-150"},
-                            {"Corvette", "Equinox", "Silverado"},
-                            {"Challenger", "Durango", "Ram 1500"}};
-    // when initializing a 2d array, we dont need a row but we need a column size, i.e., cars[][4]
-
-    std::cout << cars[0][0] << " ";
-    std::cout << cars[0][1] << " ";
-    std::cout << cars[0][2] << " \n";
-    std::cout << cars[1][0] << " ";
-    std::cout << cars[1][1] << " ";
-    std::cout << cars[1][2] << " \n\n";
-
-    int rows = sizeof(cars)/sizeof(cars[0]);
-    int columns = sizeof(cars[0])/sizeof(cars[0][0]);
-
-    for(int i = 0; i < rows; i++)
+    for (const auto& row : cars)
     {
-        for(int j = 0; j < columns; j++)
-        {
-            std::cout << cars[i][j] << " ";  
-        }
-        std::cout << "\n";
+        for (const std::string& car : row)
+            std::cout << car << "\t";
+        std::cout << '\n';
     }
-
-
-
-
-    return 0;
 }

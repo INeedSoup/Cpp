@@ -1,3 +1,7 @@
+/* Learn: projects combine small functions, state, validation, menus, and output formatting.
+Why: separating responsibilities makes a program easier to test and extend.
+Watch out: every user-input path needs recovery after a failed read.
+Try next: Add a transaction-history vector to the banking program. */
 #include <iomanip>
 #include <iostream>
 #include <limits>

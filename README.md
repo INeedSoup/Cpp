@@ -35,6 +35,9 @@ cmake --build build
 2. Compile with warnings enabled. Warnings are part of the lesson, not noise.
 3. Prefer `std::vector`, `std::string`, and smart pointers in new programs; raw arrays and `new`/`delete` are included so you can read older C++ and understand the trade-offs.
 4. Keep generated binaries outside version control. The included `.gitignore` already excludes common build output.
+5. Read each stage's README before its source files; it explains what a concept is, why it matters, where to use it, and its main pitfall.
+
+The [learning method](docs/LEARNING_METHOD.md) explains how to turn the examples into practice rather than passive reading.
 
 ## Conventions used here
 

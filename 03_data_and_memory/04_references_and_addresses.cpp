@@ -1,54 +1,27 @@
+/* Learn: pass-by-value copies an object; a reference parameter aliases the caller's object.
+Why: a copy cannot change the caller, while a reference can avoid a copy and intentionally update it.
+Use: pass by value for an independent copy; pass by reference when mutation is part of the function's job.
+Watch out: use const references for read-only access; swapping can use std::swap in real code.
+Try next: Print the address of a single int through a const void pointer. */
 #include <iostream>
+#include <string>
 
-void swapPBV(std::string x, std::string y);
-
-void swapPBR(std::string &x, std::string &y);
-
+void changeCopy(std::string text) { text = "changed locally"; }
+void swapByReference(std::string& first, std::string& second)
+{
+    const std::string temporary = first;
+    first = second;
+    second = temporary;
+}
 
 int main()
 {
-    // memory address = a location in memory where data is stored, a memory address can be accessed with &(address-of operator)
+    std::string first = "Kool-Aid";
+    std::string second = "Water";
+    std::cout << "Address of first: " << static_cast<const void*>(&first) << '\n';
 
-    std::string name = "Aman";
-    int age = 22;
-    bool student = false;
-
-    std::cout << &name << "\n"; // hexadecimal address
-    std::cout << *&name << "\n"; // *(dereference operator, value-of operator, to retrieve value at a given address)
-    std::cout << &age << "\n";
-    std::cout << &student << "\n\n\n";
-
-    std::string x = "Kool-Aid";
-    std::string y = "Water";
-    std::cout << &x << "\n";
-    std::cout << &y << "\n";
-
-    swapPBV(x, y); // pass by value, we send a copy of values to function so our real values stay uneffected
-    std::cout << "X: " << x << "\n" << "Y: " << y << "\n\n";
-
-    
-    std::cout << &x << "\n";
-    std::cout << &y << "\n\n";
-    swapPBR(x, y); // pass by reference, we work directly on variables 
-    std::cout << "X: " << x << "\n" << "Y: " << y << "\n\n";
-
-    return 0;
-}
-
-void swapPBV(std::string x, std::string y)
-{
-    std::string temp = x;
-    x = y;
-    y = temp;
-    std::cout << &x << "\n";
-    std::cout << &y << "\n";
-}
-
-void swapPBR(std::string &x, std::string &y)
-{
-    std::string temp = x;
-    x = y;
-    y = temp;
-    std::cout << &x << "\n";
-    std::cout << &y << "\n";
+    changeCopy(first);
+    std::cout << "After pass-by-value: " << first << '\n';
+    swapByReference(first, second);
+    std::cout << "After pass-by-reference: " << first << ", " << second << '\n';
 }

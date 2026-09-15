@@ -1,3 +1,7 @@
+/* Learn: a pointer stores an address and nullptr represents “no object”.
+Why: pointers can model optional non-owning access.
+Watch out: checking for nullptr does not protect against a dangling pointer.
+Try next: Point at an int, change it through the pointer, then print the int. */
 #include <iostream>
 #include <string>
 

@@ -1,3 +1,7 @@
+/* Learn: a project can model a board with an array and isolate drawing, rules, and input in functions.
+Why: separate functions keep a game loop readable.
+Watch out: validate an index before using it to access the board.
+Try next: Add a replay prompt after the final board is displayed. */
 #include <array>
 #include <iostream>
 #include <random>

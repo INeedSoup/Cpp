@@ -1,84 +1,28 @@
+/* Learn: a struct groups related public values into one record.
+Why: a Student is easier to pass around than separate name, GPA, and enrolment variables.
+Use: simple data with no important invariant to enforce.
+Watch out: choose a class when construction or changes must be validated.
+Try next: Add a function that prints a Student through a const reference. */
 #include <iostream>
+#include <string>
 
-struct student
+struct Student
 {
     std::string name;
-    double gpa;
-    bool enrolled = true; // default value can be set so only explicitly set values will overwrite it else default value will be considered
+    double gpa{};
+    bool enrolled{true};
 };
 
-struct Car
+void printStudent(const Student& student)
 {
-    std::string model;
-    int year;
-    std::string color;
-};
-
-void printCar(Car car); // pass by value
-
-void printCar1(Car &car); // Pass by reference
-
-void paintCar(Car &car, std::string colour);
+    std::cout << student.name << ": GPA " << student.gpa
+              << ", enrolled: " << std::boolalpha << student.enrolled << '\n';
+}
 
 int main()
 {
-    // struct : a structure that group related variables under one name, struct can contain many different data types, variables in a struct are known as "members"
-    // Members can be accessed with "Class member access operator"
-
-    student student1;
-    student1.name = "Aman";
-    student1.gpa = 3.5;
-    student1.enrolled = true;
-    std::cout << student1.name << " " << student1.gpa << " " << student1.enrolled << "\n";
-
-    student student2;
-    student2.name = "Pawar";
-    student2.gpa = 2.7;
-    student2.enrolled = true;
-    std::cout << student2.name << " " << student2.gpa << " " << student2.enrolled << "\n";
-
-    student student3;
-    student3.name = "Ponda";
-    student3.gpa = 1.5;
-    student3.enrolled = false;
-    std::cout << student3.name << " " << student3.gpa << " " << student3.enrolled << "\n";
-    
-    Car car1;
-    car1.model = "Mustang";
-    car1.year = 2023;
-    car1.color = "red";
-
-    Car car2;
-    car2.model = "Corvette";
-    car2.year = 2024;
-    car2.color = "blue";
-
-    std::cout << &car1 << " ";
-    printCar(car1);
-    std::cout << "\n";
-    
-    std::cout << &car2 << " ";
-    printCar1(car2);
-
-    paintCar(car2, "cyan");
-    printCar(car2);
-
-    return 0;
-}
-
-void printCar(Car car)
-{
-    std::cout << &car << " ";
-    std::cout << car.model << " " << car.year << " " << car.color << "\n";
-}
-
-void printCar1(Car &car)
-{
-    std::cout << &car << " ";
-    std::cout << car.model << " " << car.year << " " << car.color << "\n";
-}
-
-void paintCar(Car &car, std::string color)
-{
-    car.color = color;
+    Student aman{"Aman", 3.5, true};
+    Student ponda{"Ponda", 1.5, false};
+    printStudent(aman);
+    printStudent(ponda);
 }

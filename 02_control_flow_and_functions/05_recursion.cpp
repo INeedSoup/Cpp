@@ -1,3 +1,7 @@
+/* Learn: recursion calls a function with a smaller problem until a base case stops it.
+Why: some structures and algorithms are naturally defined in smaller versions of themselves.
+Watch out: each call uses stack space; use a loop when it is simpler.
+Try next: Write a recursive sum from 1 to n. */
 #include <iostream>
 #include <stdexcept>
 

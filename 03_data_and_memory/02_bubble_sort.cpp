@@ -1,3 +1,7 @@
+/* Learn: bubble sort compares neighbours and moves the largest remaining value to the end each pass.
+Why: it is a clear nested-loop example, not a production sorting choice.
+Watch out: O(n^2) becomes slow quickly; prefer std::sort for real data.
+Try next: Reverse the comparison to sort descending. */
 #include <algorithm>
 #include <array>
 #include <iostream>

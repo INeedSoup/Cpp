@@ -1,38 +1,33 @@
+/*
+Learn: One normalised choice can select the correct conversion formula.
+Why: Accepting both c and C makes an interactive program friendlier.
+Use: Convert between two fixed units selected by the user.
+Watch out: Be clear whether the requested unit is the input unit or the output unit.
+Try next: Add Kelvin as a third unit.
+*/
+#include <cctype>
 #include <iostream>
 
 int main()
 {
-    double temp;
-    char unit;
+    char targetUnit{};
+    double temperature{};
+    std::cout << "Convert to (C)elsius or (F)ahrenheit: ";
+    std::cin >> targetUnit;
+    targetUnit = static_cast<char>(std::toupper(static_cast<unsigned char>(targetUnit)));
 
-    std::cout << "********** Temperature Converter **********\n";
-    std::cout << "F = Fahrenheit\n";
-    std::cout << "C = Celsius\n";
-    std::cout << "What unit would you like to convert to: ";
-    std::cin >> unit;
-
-    if(unit == 'F' || unit == 'f')
+    if (targetUnit == 'F')
     {
-        std::cout << "Enter the temperature in celsius: ";
-        std::cin >> temp;
-
-        temp = (1.8 * temp) + 32.0;
-        std::cout << "Temperature is: " << temp << "F\n";
+        std::cout << "Temperature in Celsius: ";
+        std::cin >> temperature;
+        std::cout << "Temperature: " << (temperature * 9.0 / 5.0 + 32.0) << " F\n";
     }
-    else if(unit == 'C' || unit == 'c')
+    else if (targetUnit == 'C')
     {
-        std::cout << "Enter the temperature in fahrenheit: ";
-        std::cin >> temp;
-
-        temp = (temp - 32.0) / 1.8;
-        std::cout << "Temperature is: " << temp << "C\n";
+        std::cout << "Temperature in Fahrenheit: ";
+        std::cin >> temperature;
+        std::cout << "Temperature: " << ((temperature - 32.0) * 5.0 / 9.0) << " C\n";
     }
     else
-    {
-        std::cout << "Please enter in only C or F\n";
-    }
-
-    std::cout << "*******************************************";
-
-    return 0;
+        std::cerr << "Choose C or F.\n";
 }

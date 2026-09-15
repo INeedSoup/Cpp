@@ -1,3 +1,7 @@
+/* Learn: a function template lets the compiler create versions of the same algorithm for compatible types.
+Why: generic code avoids duplicate int, double, and string implementations.
+Watch out: the selected type must support every operation used by the template.
+Try next: Write a template that returns the smaller of two values. */
 #include <iostream>
 #include <string>
 

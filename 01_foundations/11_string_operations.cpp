@@ -1,47 +1,33 @@
+/*
+Learn: std::string owns text and offers size, search, insertion, and removal operations.
+Why: It is safer and more convenient than manually managed character arrays.
+Use: Store and process names, sentences, and messages.
+Watch out: Check that text is non-empty before accessing character 0; find can return npos.
+Try next: Search for '@' and report whether the input resembles an email address.
+*/
 #include <iostream>
+#include <string>
 
 int main()
 {
     std::string name;
-
-    std::cout << "Enter your name: ";
+    std::cout << "Enter your full name: ";
     std::getline(std::cin, name);
 
-    if(name.length() > 12)
+    if (name.empty())
     {
-        std::cout << "Your name can't be above 12 characters\n";
+        std::cout << "No name was entered.\n";
+        return 0;
     }
+    std::cout << "Length: " << name.size() << "\nFirst character: " << name.at(0) << '\n';
+
+    const std::size_t space = name.find(' ');
+    if (space != std::string::npos)
+        std::cout << "First word: " << name.substr(0, space) << '\n';
     else
-    {
-        std::cout << "Welcome " << name << std::endl;
-    }
+        std::cout << "The name contains one word.\n";
 
-    if(name.empty())
-    {
-        std::cout << "You didnt enter your name\n";
-    }
-    else
-    {
-        std::cout << "Hello " << name << std::endl;
-    }
-
-    name.clear();
-    std::cout << "Hello " << name << std::endl;
-
-    std::cout << "Enter our name again: ";
-    std::getline(std::cin, name);
-    name.append("@gmail.com");
-    std::cout << "Your username is now " << name << std::endl;
-
-    std::cout << name.at(0);
-
-    name.insert(0, "d");
-    std::cout << name << std::endl;
-
-    std::cout << name.find(' ') << std::endl;
-
-    name.erase(0, 3);
-    std::cout << name << std::endl;
-
-    return 0;
+    name.insert(0, "Learner: ");
+    name.append("!");
+    std::cout << name << '\n';
 }
